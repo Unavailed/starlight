@@ -7,15 +7,25 @@ extern "C" {
 #endif
 
 #if defined(_WIN32)
+    #define SL_USE_WINDOWS
     #define SL_APIENTRY __stdcall
     #if defined(STARLIGHT_BUILD)
         #define SL_API __declspec(dllexport)
     #else
         #define SL_API __declspec(dllimport)
     #endif
-#else
+#elif __linux__
+    #define SL_USE_LINUX
     #define SL_APIENTRY
     #define SL_API __attribute__((visibility("default")))
+#elif __APPLE__
+    #define SL_USE_APPLE
+    #define SL_APIENTRY
+    #define SL_API __attribute__((visibility("default")))
+#else
+    #define SL_USE_NULL
+    #define SL_APIENTRY
+    #define SL_API
 #endif
 
 int SL_INIT = 0;
@@ -38,6 +48,7 @@ typedef enum {
 
 typedef struct {
     int         sConfigType;
+    
     // Application Information
     const char* pApplicationName;
     int         pApplicationVersion;
