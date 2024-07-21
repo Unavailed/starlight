@@ -11,6 +11,8 @@ extern "C" {
     #define SL_APIENTRY __stdcall
     #if defined(STARLIGHT_BUILD)
         #define SL_API __declspec(dllexport)
+    #elif defined(STARLIGHT_STATIC)
+        #define SL_API
     #else
         #define SL_API __declspec(dllimport)
     #endif
