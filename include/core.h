@@ -1,12 +1,13 @@
 #pragma once
 
-#include "vendor/GLFW/glfw3.h"
-
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 #if defined(_WIN32)
+    #define GLFW_EXPOSE_NATIVE_WIN32
+    #include "vendor/GLFW/glfw3.h"
+    #include "vendor/GLFW/glfw3native.h"
     #define SL_USE_WINDOWS
     #define SL_APIENTRY __stdcall
     #if defined(STARLIGHT_BUILD)
@@ -16,11 +17,23 @@ extern "C" {
     #else
         #define SL_API __declspec(dllimport)
     #endif
-#elif __linux__
+#elif defined(__linux__)
+    #if defined(__WAYLAND__)
+        #define GLFW_EXPOSE_NATIVE_WAYLAND
+        #include "vendor/GLFW/glfw3.h"
+        #include "vendor/GLFW/glfw3native.h"
+    #elif defined(__X11__)
+        #define GLFW_EXPOSE_NATIVE_X11
+        #include "vendor/GLFW/glfw3.h"
+        #include "vendor/GLFW/glfw3native.h"
+    #endif 
     #define SL_USE_LINUX
     #define SL_APIENTRY
     #define SL_API __attribute__((visibility("default")))
-#elif __APPLE__
+#elif defined(__APPLE__)
+    #define GLFW_EXPOSE_NATIVE_COCOA
+    #include "vendor/GLFW/glfw3.h"
+    #include "vendor/GLFW/glfw3native.h"
     #define SL_USE_APPLE
     #define SL_APIENTRY
     #define SL_API __attribute__((visibility("default")))
@@ -30,20 +43,20 @@ extern "C" {
     #define SL_API
 #endif
 
-int SL_INIT = 0;
+static int SL_INIT = 0;
 
 typedef enum {
-    SL_SUCCESS,
-    SL_ERROR_INIT,
-    SL_ERROR_NOT_INIT,
-    SL_ERROR_WINDOW,
-    SL_ERROR_CONTEXT,
-    SL_ERROR_DEVICE,
-    SL_ERROR_INPUT,
-    SL_ERROR_RENDER,
-    SL_ERROR_OUT_OF_MEMORY,
-    SL_ERROR_INVALID_ARGUMENT,
-    SL_ERROR_UNKNOWN
+    SL_SUCCESS = 0,
+    SL_ERROR_INIT = -1,
+    SL_ERROR_NOT_INIT = -1,
+    SL_ERROR_WINDOW = -1,
+    SL_ERROR_CONTEXT = -1,
+    SL_ERROR_DEVICE = -1,
+    SL_ERROR_INPUT = -1,
+    SL_ERROR_RENDER = -1,
+    SL_ERROR_OUT_OF_MEMORY = -1,
+    SL_ERROR_INVALID_ARGUMENT = -1,
+    SL_ERROR_UNKNOWN = -2
 } SL_STATUS;
 
 #define SL_CONFIG_WINDOW 0x1 // WINDOW CONFIG
@@ -63,7 +76,7 @@ typedef struct {
     const char* pWindowTitle;
     int         pWindowWidth;
     int         pWindowHeight;
-    GLFWwindow* pWindowMonitor;
+    GLFWmonitor* pWindowMonitor;
 
     // Device Information
     int         pDeviceCount;

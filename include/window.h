@@ -1,3 +1,5 @@
+#pragma once
+
 #include "vendor/GLFW/glfw3.h"
 #include "core.h"
 
@@ -44,14 +46,6 @@ slWindow SL_API SL_APIENTRY slDefineWindow(void);
  * @param config The config to be linked.
  */
 void SL_API SL_APIENTRY slLinkWindowConfig(slWindow *window, SL_CONFIG config);
-
-/**
- * @brief Links window with GLFW window.
- * 
- * @param window Starlight window
- * @param glfwWindow GLFW window.
- */
-void SL_API SL_APIENTRY slLinkWindowGLFW(slWindow *window, GLFWwindow* glfwWindow);
 
 /**
  * @brief Initializes starlight window.

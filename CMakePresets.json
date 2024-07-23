@@ -2,6 +2,20 @@
     "version": 8,
     "configurePresets": [
         {
+            "name": "Clang 16.0.5 (MSVC CLI) for MSVC 17.8.34309.116 (Visual Studio Enterprise 2022 Release - x86)",
+            "displayName": "Clang 16.0.5 (MSVC CLI) for MSVC 17.8.34309.116 (Visual Studio Enterprise 2022 Release - x86)",
+            "description": "Using compilers: C = F:\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Tools\\Llvm\\bin\\clang-cl.exe, CXX = F:\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Tools\\Llvm\\bin\\clang-cl.exe",
+            "generator": "Visual Studio 17 2022",
+            "toolset": "ClangCL,host=x86",
+            "architecture": "win32",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+                "CMAKE_C_COMPILER": "F:/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/bin/clang-cl.exe",
+                "CMAKE_CXX_COMPILER": "F:/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/bin/clang-cl.exe"
+            }
+        },
+        {
             "name": "Visual Studio Enterprise 2022 Release - x86_amd64",
             "displayName": "Visual Studio Enterprise 2022 Release - x86_amd64",
             "description": "Using compilers for Visual Studio 17 2022 (x86_x64 architecture)",
@@ -17,6 +31,12 @@
         }
     ],
     "buildPresets": [
+        {
+            "name": "Clang 16.0.5 (MSVC CLI) for MSVC 17.8.34309.116 (Visual Studio Enterprise 2022 Release - x86)-debug",
+            "displayName": "Clang 16.0.5 (MSVC CLI) for MSVC 17.8.34309.116 (Visual Studio Enterprise 2022 Release - x86) - Debug",
+            "configurePreset": "Clang 16.0.5 (MSVC CLI) for MSVC 17.8.34309.116 (Visual Studio Enterprise 2022 Release - x86)",
+            "configuration": "Debug"
+        },
         {
             "name": "Visual Studio Enterprise 2022 Release - x86_amd64-debug",
             "displayName": "Visual Studio Enterprise 2022 Release - x86_amd64 - Debug",
