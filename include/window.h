@@ -35,12 +35,6 @@ typedef struct {
 } slWindow;
 
 /**
- * @brief Defines an uninitialized window.
- * @return uninitialized Starlight window.
- */
-slWindow SL_API SL_APIENTRY slDefineWindow(void);
-
-/**
  * @brief Links window with config.
  * @param window The window linked to.
  * @param config The config to be linked.

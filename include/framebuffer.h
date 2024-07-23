@@ -20,8 +20,6 @@ typedef struct {
     SL_STATUS status;
 } slFramebuffer;
 
-slFramebuffer SL_API SL_APIENTRY slDefineFramebuffer();
-
 SL_STATUS SL_API SL_APIENTRY slInitFramebuffer(slFramebuffer *fb, int width, int height);
 SL_STATUS SL_API SL_APIENTRY slclearFramebuffer(slFramebuffer *fb);
 SL_STATUS SL_API SL_APIENTRY slFBDrawPixel(slFramebuffer *fb, int x, int y, BYTE r, BYTE g, BYTE b, BYTE a);

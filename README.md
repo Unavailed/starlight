@@ -22,7 +22,7 @@ int main() {
     windowConfig.pWindowFlags = NULL;
 
     // Create a window
-    slWindow window = slDefineWindow();
+    slWindow window;
     slLinkWindowConfig(&window, windowConfig);
     slInitWindow(&window);
     slRenderWindow(&window);

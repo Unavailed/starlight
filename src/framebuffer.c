@@ -1,11 +1,5 @@
 #include "include/framebuffer.h"
 
-slFramebuffer SL_API SL_APIENTRY slDefineFramebuffer() {
-    slFramebuffer fb;
-    fb.status = SL_SUCCESS;
-    return fb;
-}
-
 SL_STATUS SL_API SL_APIENTRY slInitFramebuffer(slFramebuffer *fb, int width, int height) {
     fb->width = width;
     fb->height = height;

@@ -1,12 +1,6 @@
 #include "include/window.h"
 #include <stdio.h>
 
-slWindow SL_API SL_APIENTRY slDefineWindow(void) {
-    slWindow window = {0};
-    window.status = SL_SUCCESS;
-    return window;
-}
-
 void SL_API SL_APIENTRY slLinkWindowConfig(slWindow *window, SL_CONFIG config) {
     if (window == NULL || config.sConfigType != SL_CONFIG_WINDOW) {
         window->status = SL_ERROR_INVALID_ARGUMENT;

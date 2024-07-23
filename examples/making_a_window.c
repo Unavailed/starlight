@@ -22,7 +22,7 @@ int main() {
     slInitWindow(&window);
 
     // Create Framebuffer
-    slFramebuffer fb = slDefineFramebuffer();
+    slFramebuffer fb;
     slInitFramebuffer(&fb, window.width, window.height);
     
     // Draw to Framebuffer
