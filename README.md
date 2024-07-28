@@ -1,6 +1,8 @@
 # Starlight
 A new high-performance, multi-threaded rendering API written in C. (VERY VERY EARLY WIP)
 
+NOTE: As of now, I'm working only on Windows and Linux. All help with darwin is accepted and appreciated.
+
 ## Example Usage
 ```c
 #include <starlight.h>
