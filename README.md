@@ -3,6 +3,8 @@ A new high-performance, multi-threaded rendering API written in C. (VERY VERY EA
 
 NOTE: As of now, I'm working only on Windows and Linux. All help with darwin is accepted and appreciated.
 
+ANOTHER NOTE: Starlight is currently held on pause due to some complications with writing the driver.
+
 ## Example Usage
 ```c
 #include <starlight.h>
