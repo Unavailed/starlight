@@ -1,7 +1,7 @@
 # Starlight
 A new high-performance, multi-threaded rendering API written in C. (VERY VERY EARLY WIP)
 
-NOTE: As of now, I'm working only on Windows and, although very rarely, Linux. All help with darwin is accepted and appreciated.
+NOTE: As of now, I'm working only on Windows (Was doing linux but, I need to reinstall it). All help with Darwin and/or Linux is accepted and appreciated.
 
 ## Example Usage
 ```c
